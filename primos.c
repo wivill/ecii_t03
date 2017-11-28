@@ -1,17 +1,41 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+#define length 5000000
+#define numbers 10000000
+
+int * primeList() {
+
+  static int list[length];
+
+  for (int i = 2; i < numbers; i++) {
+
+    for (int j = 2; j < i; j++) {
+
+      if (i % j == 0) {
+        break;
+      } else {
+        
+      }
+
+    }
+
+  }
+
+
+  return list;
+}
+
+void criba() {
+
+
+}
 
 int main(int argc, char const *argv[]) {
 
-  if (argc == 2) {
-    printf("Cantidad de números primos a calcular: %s\n", argv[1]);
-    int cantidad = atoi(argv[1]);
-  }
-  else if (argc > 2) {
-    printf("Se han proprcionado demasiados argumentos.\n");
-  } else {
-    printf("Solo se debe proporcionar como argumento la cantidad de números primos al calcular.\n");
-  }
+  int *list;
+
+  list = primeList();
 
   return 0;
 }

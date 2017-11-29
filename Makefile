@@ -1,13 +1,13 @@
 src=primos
 CC=gcc
-CFLAGS=-Wall -Wpedantic -o
+CFLAGS=-Wall -Wpedantic
 bin=${src}.o
 par=${src}_parallel.o
 
 all: serial parallel
 
 serial:
-	${CC} ${CFLAGS} ${bin}
+	${CC} ${CFLAGS} ${src}.c -o ${bin}
 
 parallel:
 	pgcc -ta=tesla -Minfo=accel -g ${src}.acc -o ${par}

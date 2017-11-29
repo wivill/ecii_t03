@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define length 5000000
-#define numbers 10000000
+#define length 5000
+#define numbers 10000
 
 int * primeList() {
 
@@ -15,7 +15,7 @@ int * primeList() {
       if (i % j == 0) {
         break;
       } else {
-        
+        list[i-2] = i;
       }
 
     }
@@ -26,16 +26,15 @@ int * primeList() {
   return list;
 }
 
-void criba() {
-
-
-}
-
 int main(int argc, char const *argv[]) {
 
   int *list;
 
   list = primeList();
+
+  for (int k = 0; k < length; k++) {
+    printf("%d\n", list[k]);
+  }
 
   return 0;
 }

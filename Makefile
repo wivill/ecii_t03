@@ -1,4 +1,4 @@
-src=primos
+src=criba2
 CC=gcc
 CFLAGS=-Wall -Wpedantic
 bin=${src}.o

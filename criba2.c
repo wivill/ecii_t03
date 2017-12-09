@@ -87,7 +87,7 @@ void criba(int *n, int length) {
 
 	int count = 0;
 
-	if(count<=5000000){
+	//if(count<=5000000){
 		for(i = 2; i <= length; ++i);
 			datosresultados->n[i] = 1;
 
@@ -103,7 +103,7 @@ void criba(int *n, int length) {
 	}else{
 		printf("Fin Numeros Primos\n");*/
 		}
-	}
+	//}
 
 
 	/*for(i = 0; i <= length; ++i) {

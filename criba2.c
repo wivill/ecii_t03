@@ -71,7 +71,7 @@ void criba(int *n, int length) {
 		}
 	/*}
 
-	/*for(i = 0; i <= length; ++i) {
+	for(i = 0; i <= length; ++i) {
 		if (datosresultados->n[i]!=0) {
 			count++;
 		}
@@ -99,7 +99,7 @@ int main(int argc, char *argv[]){
 	double seg;
 
 	t_inicial = clock();
-	criba(datosresultados ->n, datosresultados->length);
+	criba(datosresultados ->n, datosresultados -> length);
 	t_final = clock();
 
 	seg = (double)(t_final - t_inicial) / CLOCKS_PER_SEC;

@@ -99,8 +99,6 @@ void criba(int *n, int length) {
 		}
 	}
 
-
-	printf("\n");
 	printf("Numeros Primos\n");
 	for(i = 0; i <= length; ++i) {
 		if (datosresultados->n[i]!=0) {

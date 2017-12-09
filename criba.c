@@ -85,8 +85,7 @@ void criba(int *n, int length) {
 	datosresultados->n[0] = 0;
 	datosresultados->n[1] = 0;
 
-	int
- count = 0;
+	int count = 0;
 
 	if(count<=5000000){
 		for(i = 2; i <= length; ++i);
@@ -97,17 +96,10 @@ void criba(int *n, int length) {
 				for(h = 2; i*h <= length; ++h)
 					datosresultados->n[i*h] = 0;
 			}
-			/*if (datosresultados->n[i]!=0) {
-			count++;
-			}
-		}
-	}else{
-		printf("Fin Numeros Primos\n");*/
 		}
 	}
 
 
-	/*Desplegando matriz*/
 	printf("\n");
 	printf("Numeros Primos\n");
 	for(i = 0; i <= length; ++i) {

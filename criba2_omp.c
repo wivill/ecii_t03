@@ -55,7 +55,6 @@ void criba(int *n, int length) {
 	datosresultados->n[1] = 0;
 
 	#pragma omp parallel for
-	// {
 	for(j = 2; j <= length; ++j) {
 		datosresultados -> n[j] = 1;
 	}
@@ -88,16 +87,7 @@ int main(int argc, char *argv[]){
 		datosresultados -> n[i] = i;
 	}
 
-	// clock_t t_inicial, t_final;
-	// double seg;
-
-	// t_inicial = clock();
 	criba(datosresultados ->n, datosresultados -> length);
-	// t_final = clock();
-
-	// seg = (double)(t_final - t_inicial) / CLOCKS_PER_SEC;
-
-	// printf("%.16g  milisegundos\n",seg * 1000.0);
 
 	free(datosresultados);
 

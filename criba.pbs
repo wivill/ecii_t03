@@ -1,0 +1,10 @@
+#PBS -N ecii03
+#PBS -q phi-n1h72
+#PBS -l nodes=1
+#PBS -l walltime=02:00:00
+#PBS -o datos.txt
+#PBS -e error.txt
+#PBS -p 1023
+
+cd $PBS_O_WORKDIR
+make test

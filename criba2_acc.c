@@ -59,10 +59,10 @@ void criba(int *n, int length) {
 		datosresultados -> n[j] = 1;
 	}
 
-	#pragma acc parallel loop schedule(dynamic)
+	#pragma acc parallel loop
 		for(i = 2; i <= length; ++i) {
 			if(datosresultados->n[i]) {
-			#pragma acc parallel loop
+			//#pragma acc parallel loop
 				for(h = 2; h <= length/i; ++h) {
 					datosresultados->n[i*h] = 0;
 				}

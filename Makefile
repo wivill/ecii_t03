@@ -3,12 +3,12 @@ CC=gcc
 CFLAGS=-Wall -Wpedantic
 par=${src}_parallel
 
-all: serial parallel icc icc_openmp openmp
+all: serial intel pgi_openmp icc_openmp openmp
 
 serial:
 	${CC} ${CFLAGS} ${src}.c -o ${src}.o
 
-icc:
+intel:
 	icc ${CFLAGS} ${src}.c -o ${src}.icc
 
 openmp:
@@ -17,20 +17,29 @@ openmp:
 icc_openmp:
 	icc ${CFLAGS} -qopenmp ${src}_omp.c -o ${par}.iomp
 
-parallel:
-	pgcc -ta=tesla -Minfo=accel -g ${src}.acc -o ${par}.acc
+pgi_openmp:
+	pgcc -mp ${src}_omp.c -o ${par}.pgomp
 
 clean:
 	rm -rf ${src}.o ${src}.icc ${par}.*
 
 test:
 	echo "Testing serial code, compiled with gcc."
-	./${src}.o
+	time ./${src}.o
 	echo "Testing serial code, compiled with icc."
-	./${src}.o
+	time ./${src}.o
 	echo "Testing parallel code, compiled with gcc."
-	./${par}.omp
+	time OMP_NUM_THREADS=1 ./${par}.omp
+	time OMP_NUM_THREADS=2 ./${par}.omp
+	time OMP_NUM_THREADS=4 ./${par}.omp
+	time OMP_NUM_THREADS=8 ./${par}.omp
 	echo "Testing parallel code, compiled with icc."
-	./${par}.iomp
-	echo "Testing parallel code, compiled with pgcc for GPU."
-	./${par}.acc
+	time OMP_NUM_THREADS=1 ./${par}.iomp
+	time OMP_NUM_THREADS=2 ./${par}.iomp
+	time OMP_NUM_THREADS=4 ./${par}.iomp
+	time OMP_NUM_THREADS=8 ./${par}.iomp
+	echo "Testing parallel code, compiled with pgcc."
+	time OMP_NUM_THREADS=1 ./${par}.pgomp
+	time OMP_NUM_THREADS=2 ./${par}.pgomp
+	time OMP_NUM_THREADS=4 ./${par}.pgomp
+	time OMP_NUM_THREADS=8 ./${par}.pgomp

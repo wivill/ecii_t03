@@ -79,7 +79,7 @@ int main(int argc, char *argv[]){
 	datosresultados -> n = NULL;
 	datosresultados -> length = 86028122;
 
-	/*Reservando e inicializando memoria de la matriz de rotación*/
+	/*Reservando e inicializando memoria*/
 	datosresultados -> n = (int *) malloc (datosresultados -> length*sizeof(int));
 
 	#pragma acc parallel loop

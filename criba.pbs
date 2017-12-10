@@ -6,5 +6,9 @@
 
 module load pgi
 
-cd /home/wvillalobos/git/ecii_t03
-make test
+cd $PBS_O_WORKDIR
+for i in {1..256}; 
+	do time OMP_NUM_THREADS=$i ./criba2_parallel.omp >> omp.txt; 
+	time OMP_NUM_THREADS=$i ./criba2_parallel.iomp >> iomp.txt; 
+	time OMP_NUM_THREADS=$i ./criba2_parallel.pgomp >> pgomp.txt; 
+done

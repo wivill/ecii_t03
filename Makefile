@@ -25,21 +25,96 @@ clean:
 
 test:
 	echo "Testing serial code, compiled with gcc."
+	echo " "
 	time ./${src}.o
+	echo " "
 	echo "Testing serial code, compiled with icc."
+	echo " "
 	time ./${src}.o
+	echo " "
 	echo "Testing parallel code, compiled with gcc."
-	time OMP_NUM_THREADS=1 ./${par}.omp
-	time OMP_NUM_THREADS=2 ./${par}.omp
-	time OMP_NUM_THREADS=4 ./${par}.omp
-	time OMP_NUM_THREADS=8 ./${par}.omp
+	echo " "
+	echo "Threads=1"
+	OMP_NUM_THREADS=1 time ./${par}.omp
+	echo " "
+	echo "Threads=2"
+	OMP_NUM_THREADS=2 time ./${par}.omp
+	echo " "
+	echo "Threads=4"
+	OMP_NUM_THREADS=4 time ./${par}.omp
+	echo " "
+	echo "Threads=8"
+	OMP_NUM_THREADS=8 time ./${par}.omp
+	echo " "
+	echo "Threads=16"
+	OMP_NUM_THREADS=16 time ./${par}.omp
+	echo " "
+	echo "Threads=32"
+	OMP_NUM_THREADS=32 time ./${par}.omp
+	echo " "
+	echo "Threads=64"
+	OMP_NUM_THREADS=64 time ./${par}.omp
+	echo " "
+	echo "Threads=128"
+	OMP_NUM_THREADS=128 time ./${par}.omp
+	echo " "
+	echo "Threads=256"
+	OMP_NUM_THREADS=256 time ./${par}.omp
+	echo " "
 	echo "Testing parallel code, compiled with icc."
-	time OMP_NUM_THREADS=1 ./${par}.iomp
-	time OMP_NUM_THREADS=2 ./${par}.iomp
-	time OMP_NUM_THREADS=4 ./${par}.iomp
-	time OMP_NUM_THREADS=8 ./${par}.iomp
+	echo " "
+	echo "Threads=1"
+	OMP_NUM_THREADS=1 time ./${par}.iomp
+	echo " "
+	echo "Threads=2"
+	OMP_NUM_THREADS=2 time ./${par}.iomp
+	echo " "
+	echo "Threads=4"
+	OMP_NUM_THREADS=4 time ./${par}.iomp
+	echo " "
+	echo "Threads=8"
+	OMP_NUM_THREADS=8 time ./${par}.iomp
+	echo " "
+	echo "Threads=16"
+	OMP_NUM_THREADS=16 time ./${par}.iomp
+	echo " "
+	echo "Threads=32"
+	OMP_NUM_THREADS=32 time ./${par}.iomp
+	echo " "
+	echo "Threads=64"
+	OMP_NUM_THREADS=64 time ./${par}.iomp
+	echo " "
+	echo "Threads=128"
+	OMP_NUM_THREADS=128 time ./${par}.iomp
+	echo " "
+	echo "Threads=256"
+	OMP_NUM_THREADS=256 time ./${par}.iomp
+	echo " "
 	echo "Testing parallel code, compiled with pgcc."
-	time OMP_NUM_THREADS=1 ./${par}.pgomp
-	time OMP_NUM_THREADS=2 ./${par}.pgomp
-	time OMP_NUM_THREADS=4 ./${par}.pgomp
-	time OMP_NUM_THREADS=8 ./${par}.pgomp
+	echo " "
+	echo "Threads=1"
+	OMP_NUM_THREADS=1 time ./${par}.pgomp
+	echo " "
+	echo "Threads=2"
+	OMP_NUM_THREADS=2 time ./${par}.pgomp
+	echo " "
+	echo "Threads=4"
+	OMP_NUM_THREADS=4 time ./${par}.pgomp
+	echo " "
+	echo "Threads=8"
+	OMP_NUM_THREADS=8 time ./${par}.pgomp
+	echo " "
+	echo "Threads=16"
+	OMP_NUM_THREADS=16 time ./${par}.pgomp
+	echo " "
+	echo "Threads=32"
+	OMP_NUM_THREADS=32 time ./${par}.pgomp
+	echo " "
+	echo "Threads=64"
+	OMP_NUM_THREADS=64 time ./${par}.pgomp
+	echo " "
+	echo "Threads=128"
+	OMP_NUM_THREADS=128 time ./${par}.pgomp
+	echo " "
+	echo "Threads=256"
+	OMP_NUM_THREADS=256 time ./${par}.pgomp

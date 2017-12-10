@@ -18,7 +18,7 @@ icc_openmp:
 	icc ${CFLAGS} -qopenmp ${src}_omp.c -o ${par}.iomp
 
 pgi_openmp:
-	pgcc -mp ${src}_omp.c -o ${par}.pgomp
+	pgcc -mp ${src}_acc.c -o ${par}.acc
 
 clean:
 	rm -rf ${src}.o ${src}.icc ${par}.*
